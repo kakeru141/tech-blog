@@ -19,69 +19,74 @@ const RowLayout: FC<P> = ({blog}) => {
                 mb: '30px',
                 pb: '30px',
                 width: '100%',
+                display: 'flex',
+                position: 'relative',
             }}
         >
-            <Link href='/'>
+            <Link href={blog.category ? `/category/${blog.category.id}` : '/'}>
                 <Box
                     component='a'
-                    sx={{
+                    sx={blog.category ? {
+                        right: 0,
+                        bgcolor: 'rgba(3, 169, 244, .6)',
+                        p: 1,
+                        borderRadius: 1,
+                        position: 'absolute',
                         display: 'flex',
+                        zIndex: 10,
                         cursor: 'pointer',
-                        alignItems: 'center',
-                }} >
-                
-                    <Box
-                        component='div'
-                        sx={{
-                            maxWidth: '300px',
-                            width: {xs: '100%'},
-                            m: '0 auto 10px auto',
-                            overflow: 'hidden',
-                            position: 'relative',
-                    }}>
-                        <Box
-                            component='div'
-                            sx={blog.category ? {
-                                right: 0,
-                                bgcolor: 'rgba(3, 169, 244, .6)',
-                                p: 1,
-                                borderRadius: 1,
-                                position: 'absolute',
-                                display: 'flex',
-                                zIndex: 10,
-                                cursor: 'pointer',
-                                '&:hover': {bgcolor: 'rgba(3, 169, 244, .9)'},
-                            } : {display: 'none'}}
-                        >
-                            <FolderCopyIcon sx={{
-                                fontSize: 'small',
-                                m: 'auto 4px auto 0',
-                            }}/>
-                            <Typography sx={{fontSize: 'small'}} >
-                                {blog.category ? blog.category.name : undefined}
-                            </Typography>
-                        </Box> 
-                    <Box
-                        component='div'
-                        sx={{
-                            transition: '.5s',
-                            '&:hover': {
-                                transform: 'Scale(1.2)'
-                            }
-                    }}>
-                        <Image
-                            src={blog.image ? `${blog.image.url}` : '/images/white.png'}
-                            layout='responsive'
-                            width={40}
-                            height={21}
-                            priority={true}
-                        />
-                    </Box>
-                </Box>
-                    <Box sx={{
+                        '&:hover': {bgcolor: 'rgba(3, 169, 244, .9)'},
+                    } : {display: 'none'}}
+                >
+                    <FolderCopyIcon sx={{
+                        fontSize: 'small',
+                        m: 'auto 4px auto 0',
+                    }}/>
+                    <Typography sx={{fontSize: 'small'}} >
+                        {blog.category ? blog.category.name : undefined}
+                    </Typography>
+                </Box> 
+            </Link>
+            <Box
+                component='div'
+                sx={{
+                    overflow: 'hidden',
+                    width: '100%',
+                }}
+            >
+                <Box
+                    component='div'
+                    sx={{
+                        transition: '.5s',
                         width: '100%',
-                        ml: '15px',
-                    }}>
+                        '&:hover': {
+                            transform: 'Scale(1.2)'
+                        }
+                }}>
+                    
+                    <Link href={`/blog/${blog.id}`}>
+                        <Box
+                            component='a'
+                            sx={{
+                                cursor: 'pointer',
+                        }} >
+                            <Image
+                                src={blog.image ? `${blog.image.url}` : '/images/noimage.png'}
+                                layout='responsive'
+                                width={16}
+                                height={9}
+                                priority={true}
+                            />
+                        </Box>
+                    </Link>
+                </Box>
+            </Box>
+            <Box sx={{
+                width: '100%',
+                ml: '15px',
+            }}>
+                <Link href={`/blog/${blog.id}`}>
+                    <Typography component='a'>
                         <Typography
                             component='h2'
                             variant='h4'
@@ -92,15 +97,15 @@ const RowLayout: FC<P> = ({blog}) => {
                             }}
                             >{blog.title}
                         </Typography>
-                        <Box sx={{
-                            display: {xs: 'none', sm: 'block'},
-                            mb: '20px'
-                        }}>
-                            <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} />
-                        </Box>
-                    </Box>
+                    </Typography>
+                </Link>
+                <Box sx={{
+                    display: {xs: 'none', sm: 'block'},
+                    mb: '20px'
+                }}>
+                    <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} />
                 </Box>
-            </Link>
+            </Box>
         </Box>
     );
 };

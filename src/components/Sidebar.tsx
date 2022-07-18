@@ -12,7 +12,6 @@ const Sidebar: FC = () => {
                     xs: '100%',
                     sm: '30%',
                 },
-                bgcolor: '#eee',
             }}
         >
             <Profile/>

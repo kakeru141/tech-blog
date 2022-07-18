@@ -1,4 +1,4 @@
-import { Box, Card, Typography } from '@mui/material';
+import { autocompleteClasses, Box, Card, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -9,6 +9,7 @@ const Profile: FC = () => {
             component='aside'
             sx={{
                 p: '20px',
+                mb: '40px'
         }}>
             <Typography
                 component='h2'
@@ -44,10 +45,37 @@ const Profile: FC = () => {
                 </Typography>
                 <Link href='https://twitter.com/kakeru_FIRE'>
                     <a>
-                        <Box>
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: '48px',
+                            height: '48px',
+                            m: 'auto',
+                            borderRadius: '24px',
+                            bgcolor: '#4FC3F7',
+                            transition: '.2s',
+                            '&:hover': {
+                                bgcolor: '#29B6F6',
+                            }
+                        }}>
+                            <Box sx={{
+                                width: '24px',
+                                height: '24px',
+                                transition: '.2s',
+                            
+                                '&:hover': {
+                                    width: '28px',
+                                    height: '28px'
+                                }
+                            }}>
                             <Image
-                                src='/'
+                                src='/images/twitter-logo.png'
+                                width={40}
+                                height={40}
+                                layout='responsive'
                             />
+                            </Box>
                         </Box>
                     </a>
                 </Link>

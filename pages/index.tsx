@@ -16,11 +16,9 @@ const Home: NextPage<P> = ({blog}) => {
 
   const [selectLayout, setSelectLayout] = useState(0)
 
-  console.log(blog[0].image.url)
-  console.log(selectLayout)
-
   return (
     <Box
+      component='div'
       sx={{
         width: {xs: '100%', sm: 'calc(70% - 30px)', md: 'calc(70% - 40px)'}
       }}
@@ -29,14 +27,15 @@ const Home: NextPage<P> = ({blog}) => {
         selectLayout={selectLayout}
         setSelectLayout={setSelectLayout}
       />
-      <Box
-        component='section'
-            sx={selectLayout === 1 ? {
-              display: 'dlex',
-              flexFlow: 'column wrap',
-              width: 'calc(100% + 15px)',
-            } : undefined}
-      >
+        <Box
+  component='section'
+      sx={selectLayout === 1 ? {
+          display: 'flex',
+          flexFlow: 'row wrap',
+          width: 'calc(100% + 15px)',
+      } : undefined}
+>
+
         {blog.map((blog) => (
           <Articles
             key={blog.id}

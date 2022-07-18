@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Blog } from '../../types/blog'
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
-import { NoEncryption } from '@mui/icons-material';
 
 
 type P = {
@@ -24,7 +23,7 @@ const SplitLayout: FC<P> = ({blog}) => {
         }}
     >
 
-        <Link href='/'>
+        <Link href={`/blog/${blog.id}`}>
         <Box
             component='a'
             sx={{
@@ -34,28 +33,32 @@ const SplitLayout: FC<P> = ({blog}) => {
                 cursor: 'pointer',
             }}
         >
-        <Box
-            component='div'
-            sx={blog.category ? {
-                right: 0,
-                bgcolor: 'rgba(3, 169, 244, .6)',
-                p: 1,
-                borderRadius: 1,
-                position: 'absolute',
-                display: 'flex',
-                zIndex: 10,
-                cursor: 'pointer',
-                '&:hover': {bgcolor: 'rgba(3, 169, 244, .9)'},
-            } : {display: 'none'}}
-        >
-            <FolderCopyIcon sx={{
-                fontSize: 'small',
-                m: 'auto 4px auto 0',
-            }}/>
-            <Typography sx={{fontSize: 'small'}} >
-                {blog.category ? blog.category.name : undefined}
-            </Typography>
-        </Box> 
+            <Link href={blog.category ? `/category/${blog.category.id}` : '/'}>
+                <a>
+                    <Box
+                        component='div'
+                        sx={blog.category ? {
+                            right: 0,
+                            bgcolor: 'rgba(3, 169, 244, .6)',
+                            p: 1,
+                            borderRadius: 1,
+                            position: 'absolute',
+                            display: 'flex',
+                            zIndex: 10,
+                            cursor: 'pointer',
+                            '&:hover': {bgcolor: 'rgba(3, 169, 244, .9)'},
+                        } : {display: 'none'}}
+                    >
+                        <FolderCopyIcon sx={{
+                            fontSize: 'small',
+                            m: 'auto 4px auto 0',
+                        }}/>
+                        <Typography sx={{fontSize: 'small'}} >
+                            {blog.category ? blog.category.name : undefined}
+                        </Typography>
+                    </Box> 
+                </a>
+            </Link>
                 
             <Box
                 component='div'
@@ -66,21 +69,21 @@ const SplitLayout: FC<P> = ({blog}) => {
                     position: 'relative',
                 }}
             >
-            <Box
-                component='div'
-                sx={{
-                    transition: '.5s',
-                    '&:hover': {
-                        transform: 'Scale(1.2)'
-                    }
-                }}
-            >
-                <Image
-                    src={blog.image ? `${blog.image.url}` : '/images/white.png'}
-                    layout='responsive'
-                    width={40}
-                    height={21}
-                    priority={true}
+                <Box
+                    component='div'
+                    sx={{
+                        transition: '.5s',
+                        '&:hover': {
+                            transform: 'Scale(1.2)'
+                        }
+                    }}
+                >
+                    <Image
+                        src={blog.image ? `${blog.image.url}` : '/images/noimage.png'}
+                        layout='responsive'
+                        width={16}
+                        height={9}
+                        priority={true}
                     />
                 </Box>
             </Box>

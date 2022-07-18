@@ -13,11 +13,11 @@ type P = {
 
 const Articles: FC<P> = ({blog, selectLayout})  => {
 
-    const splitSelectStyle = {display: 'dlex', flexDirection: 'column'}
+                
+                const splitSelectStyle = {display: 'flex', flexDirection: 'column',width: 'calc(100% + 15px)',}
 
     return(
         <>
-
             {(() => {
                 switch (selectLayout) {
                     case 0:
@@ -31,7 +31,8 @@ const Articles: FC<P> = ({blog, selectLayout})  => {
                         break;
                 }
             })()}
-        </>
+                </>
+
         
     )
 };

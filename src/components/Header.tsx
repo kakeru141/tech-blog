@@ -4,6 +4,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { borderRadius, height, padding } from '@mui/system';
 import Link from 'next/link';
 import { FC } from 'react';
+import { useRouter } from 'next/router';
+
+
 
 const menus = [
     {
@@ -16,6 +19,9 @@ const menus = [
 ]
 
 const Header: FC = () => {
+
+    const router = useRouter().asPath
+
     return (
         <Box
             component='header'
@@ -28,7 +34,7 @@ const Header: FC = () => {
             }}
         >
             <Typography
-                component='h1'
+                component={router === '/' ? 'h1' : 'div'}
                 sx={{
                     m: '0 20px 15px',
                     p: '10px 0 0',
@@ -57,7 +63,7 @@ const Header: FC = () => {
                     justifyContent: 'space-around',
                     p: 0,
                 }}>
-                        {menus.map(menu => (
+                        {/* {menus.map(menu => (
                             <Grid
                                 key={menu.title}
                                 item
@@ -81,7 +87,7 @@ const Header: FC = () => {
                                     >{menu.title}</Typography>
                                 </Link>
                             </Grid>
-                        ))}
+                        ))} */}
                 </Grid>
             </nav>
 
