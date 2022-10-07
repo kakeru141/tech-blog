@@ -4,14 +4,13 @@ import Image from 'next/image';
 import { FC } from 'react';
 import { client } from '../../src/libs/client';
 import { Blog } from '../../src/types/blog';
+import style from './BlogId.module.scss';
 
 type P = {
     blog: Blog
 }
 
 const BlogId: FC<P> = ({blog}) => {
-
-    console.log(blog)
 
     return (
         <Box
@@ -20,10 +19,12 @@ const BlogId: FC<P> = ({blog}) => {
                 width: 'calc(70% - 30px)',
                 fontWeight: 700,
                 lineHeight: 1.5,
+                m: 'auto'
             }}
         >
             <Typography
             variant='h3'
+            component='h1'
                 sx={{
                     mb: '20px',
                 }}
@@ -71,7 +72,7 @@ const BlogId: FC<P> = ({blog}) => {
                 pt: '20px'
             }}
             >
-                <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} />
+                <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={style.content} />
             </Box>
         </Box>
     );

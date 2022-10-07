@@ -43,7 +43,7 @@ const Profile: FC = () => {
                     個人開発を本業にすることを目標に、未経験からエンジニア転職に取り組み中。
                     主にJavaScript、特にReactやってます
                 </Typography>
-                <Link href='https://twitter.com/kakeru_FIRE'>
+                {/* <Link href='https://twitter.com/kakeru_FIRE'>
                     <a>
                         <Box sx={{
                             display: 'flex',
@@ -78,7 +78,7 @@ const Profile: FC = () => {
                             </Box>
                         </Box>
                     </a>
-                </Link>
+                </Link> */}
             </Box>
         </Card>
     );
