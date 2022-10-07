@@ -95,12 +95,12 @@ const SplitLayout: FC<P> = ({blog}) => {
             <Box sx={{
                 display: {xs: 'none', sm: 'block'}
             }}>
-                <Typography
+                {/* <Typography
                     sx={{
                         display: {xs: 'none', sm: 'block'}
                     }}
                     dangerouslySetInnerHTML={{__html: `${blog.body}`}}
-                />
+                /> */}
             </Box>
         </Box>
     </Link>

@@ -96,11 +96,11 @@ const WideLayout: FC<P> = ({blog}) => {
                         </Typography>
                     </Typography>
                 </Link>
-                <Box sx={{
+                {/* <Box sx={{
                     display: {xs: 'none', sm: 'block'}
                 }}>
                     <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} />
-                </Box>
+                </Box> */}
             </Box>
         </Box>
     );

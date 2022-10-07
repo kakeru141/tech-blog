@@ -36,11 +36,11 @@ const Profile: FC = () => {
                 かける
                 </Typography>
                 <Typography
-                    variant='h5'
+                    variant='body2'
                     paragraph
                     sx={{textAlign: 'start'}}
                 >
-                    個人開発を本業にすることを目標に、未経験からエンジニア転職に取り組み中。
+                    未経験からエンジニア転職に取り組み中。
                     主にJavaScript、特にReactやってます
                 </Typography>
                 {/* <Link href='https://twitter.com/kakeru_FIRE'>

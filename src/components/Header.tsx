@@ -26,7 +26,7 @@ const Header: FC = () => {
         <Box
             component='header'
             sx={{
-                m: '20px 0',
+                m: '10px 0',
                 p: '0 20px',
                 textAlign: 'center',
                 position: 'relative',
