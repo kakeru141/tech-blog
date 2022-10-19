@@ -21,10 +21,21 @@
         font-size: 1.5em;
     }
     pre {
-        font-size: 0.5em;
-        // overflow: scroll;
+        overflow: scroll;
         padding: 10px;
         background: #212121;
-        color: #fff;
+        code{
+            font-size: 1em;
+            color: #fff;
+            border: none;
+        }
+    }
+    code {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        margin: 0 2px;
+        padding: 2px 4px;
+        font-size: 0.5em;
+        color: #ff357f;
     }
 }
