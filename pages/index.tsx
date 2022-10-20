@@ -1,9 +1,10 @@
-import { Box, Paper, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import type { NextPage } from 'next'
 
 import { useState } from 'react'
 import ArticleLayoutMenu from '../src/components/ArticleLayoutMenu'
 import Articles from '../src/components/Articles'
+import HeadContainer from '../src/components/HeadContainer'
 import { client } from '../src/libs/client'
 import { Blog } from '../src/types/blog'
 
@@ -17,6 +18,26 @@ const Home: NextPage<P> = ({blog}) => {
   const [selectLayout, setSelectLayout] = useState(0)
 
   return (
+    <>
+    <HeadContainer>
+      <title>かけるの技術ブログ</title>
+      <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
+      <meta
+          property='og:url'
+          content={process.env.NEXT_PUBLIC_SITE_URL}
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='かけるの技術ブログ' />
+        <meta
+          property='og:description'
+          content='エンジニアかけるのアウトプットです'
+        />
+        <meta property='og:site_name' content='かけるの技術ブログ' />
+        <meta
+          property='og:image'
+          content={`${process.env.NEXT_PUBLIC_SITE_URL}/public/vercel.svg`}
+        />
+    </HeadContainer>
     <Box
       component='div'
       sx={{
@@ -45,6 +66,7 @@ const Home: NextPage<P> = ({blog}) => {
         ))}
         </Box>
     </Box>
+    </>
   )
 }
 

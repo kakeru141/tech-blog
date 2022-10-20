@@ -2,6 +2,7 @@ import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';
+import HeadContainer from '../../src/components/HeadContainer';
 import { client } from '../../src/libs/client';
 import { Blog } from '../../src/types/blog';
 import style from './BlogId.module.scss';
@@ -13,6 +14,11 @@ type P = {
 const BlogId: FC<P> = ({blog}) => {
 
     return (
+        <>
+        <HeadContainer>
+            <title>{blog.title}</title>
+            <meta property='og:type' content='article' />
+        </HeadContainer>
         <Box
             component='main'
             sx={{
@@ -75,6 +81,7 @@ const BlogId: FC<P> = ({blog}) => {
                 <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={style.content} />
             </Box>
         </Box>
+        </>
     );
 };
 
