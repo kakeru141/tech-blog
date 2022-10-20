@@ -41,7 +41,8 @@ const Home: NextPage<P> = ({blog}) => {
     <Box
       component='div'
       sx={{
-        width: {xs: '100%', sm: 'calc(70% - 30px)', md: 'calc(70% - 40px)'}
+        width: {xs: '100%', sm: 'calc(70% - 30px)', md: 'calc(70% - 40px)'},
+        minHeight: '100vh'
       }}
     >
       <ArticleLayoutMenu
